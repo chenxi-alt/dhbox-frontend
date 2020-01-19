@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 import Logo from "./Logo";
 
@@ -31,6 +32,13 @@ const UL = styled.ul`
         display: inline-block;
         padding: 0 15px;
     }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    a:hover {
+        color: #00a7de;
+    }
 `
 
 //登录注册按钮容器
@@ -46,10 +54,13 @@ const Button = styled.div`
         z-index: 10;
         cursor: pointer;
         background: #00a7de;
-        color: white;
         outline: none;
         border: none;
         border-radius: 5px;
+        a {
+            text-decoration: none;
+            color: white;
+        }
     }
 `
 
@@ -62,12 +73,14 @@ const Navigation = props => {
             <NavContainer>
                 <Logo/>
                 <UL>
-                    <li>社区</li>
+                    <li><Link href="/forum"><a>社区</a></Link></li>
                     <li>遗产管理</li>
                     <li>咨询</li>
                 </UL>
             </NavContainer>
-            <Button><button>登录 / 注册</button></Button>
+            <Button>
+                <button><Link href={'/login'}><a>登录 / 注册</a></Link></button>
+            </Button>
         </Container>
     )
 }

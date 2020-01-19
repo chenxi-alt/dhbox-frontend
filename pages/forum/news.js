@@ -1,10 +1,10 @@
-import Forum from "../components/forum";
+import Forum from "../../components/forum";
 
 const App = () => {
     return (
         <>
-            <Forum select={'chat'}>
-                hello
+            <Forum select={'news'}>
+                news
             </Forum>
         </>
     )

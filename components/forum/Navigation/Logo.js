@@ -28,7 +28,7 @@ const Logo = () => {
             <a>
                 <Container>
                     <img src={'/favicon.ico'} alt={'logo'} width={32} height={32}/>
-                    <Text>Logo</Text>
+                    <Text>DH社区</Text>
                 </Container>
             </a>
         </Link>

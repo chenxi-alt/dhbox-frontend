@@ -5,7 +5,7 @@ import NavContainer from "./NavContainer";
  */
 const News = props => {
     return (
-        <NavContainer>
+        <NavContainer select={props.select}>
             <svg viewBox="0 0 1024 1024" width="23" height="60" fill={'currentColor'}>
                 <path
                     d="M904 176H120c-30.9 0-56 25.1-56 56v560c0 30.9 25.1 56 56 56h784c30.9 0 56-25.1 56-56V232c0-30.9-25.1-56-56-56z m0 616H120V232h784v560z"/>
