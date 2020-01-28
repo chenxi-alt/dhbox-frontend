@@ -1,10 +1,11 @@
 import Forum from "../../components/forum";
+import ContentItem from "../../components/forum/ContentItem";
 
 const App = () => {
     return (
         <>
             <Forum select={'news'}>
-                news
+                <ContentItem/>
             </Forum>
         </>
     )

@@ -13,6 +13,7 @@ const Container = styled.div`
     background: white;
     border-radius: 2px;
     display: flex;
+    border-bottom: 1px solid #f0f2f7;
     @media (max-width: 600px) {
         height: 50px;
     }

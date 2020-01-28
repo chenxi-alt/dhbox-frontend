@@ -8,7 +8,7 @@ const NavContainer = styled.div`
     height: 100%;
     display: flex;
     padding: 0 15px;
-    color: #444;
+    color: ${props => props.select ? '#0084ff' : '#444'};
     font-size: 1.1rem;
     line-height: 59px;
     

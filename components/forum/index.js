@@ -19,6 +19,7 @@ const MainContainer = styled.div`
 const LeftContainer = styled.div`
     width: 70%;
     float: left;
+    background: white;
     @media (max-width: 600px) {
         width: 100%;
     }

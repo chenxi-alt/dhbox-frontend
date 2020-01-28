@@ -79,7 +79,7 @@ const Navigation = props => {
                 </UL>
             </NavContainer>
             <Button>
-                <button><Link href={'/login'}><a>登录 / 注册</a></Link></button>
+                <Link href={'/login'}><button><a>登录 / 注册</a></button></Link>
             </Button>
         </Container>
     )
