@@ -27,7 +27,7 @@ const Container = styled.div`
 /**
  * 新闻热点的一个item
  */
-const ContentItem = props => {
+const NewsContentItem = props => {
     return (
         <Container>
             <h2>为什么说现在身份证号“打码”形同虚设？</h2>
@@ -40,4 +40,4 @@ const ContentItem = props => {
     )
 }
 
-export default ContentItem
+export default NewsContentItem

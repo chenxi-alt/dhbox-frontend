@@ -2,7 +2,7 @@
 
 ## 启动
 
-> docker run --name dh-frontend -d --network my-net registry.cn-shanghai.aliyuncs.com/mrbook/test:0.0.3
+> docker run --name dh-frontend -d --network my-net registry.cn-shanghai.aliyuncs.com/mrbook/dhbox-frontend:0.0.5
 
 # 启动nginx
 
