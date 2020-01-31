@@ -10,7 +10,6 @@ const Container = styled.div`
         padding: 0 24px;
     }
     padding: 0 15px;
-    height: 100%;
     margin: 15px auto;
     position: relative;
 `

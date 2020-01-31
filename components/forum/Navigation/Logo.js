@@ -24,7 +24,7 @@ const Text = styled.div`
 
 const Logo = () => {
     return (
-        <Link href={'/'}>
+        <Link href={'/forum'}>
             <a>
                 <Container>
                     <img src={'/favicon.ico'} alt={'logo'} width={32} height={32}/>
