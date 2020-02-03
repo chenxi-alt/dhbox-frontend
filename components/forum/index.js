@@ -20,6 +20,8 @@ const LeftContainer = styled.div`
     width: 70%;
     float: left;
     background: white;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
     @media (max-width: 600px) {
         width: 100%;
     }

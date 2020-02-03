@@ -3,6 +3,7 @@ import styled from "styled-components";
 import dynamic from "next/dynamic";
 
 import Skeleton from "../../Skeleton";
+import Comments from "../Question/Comments";
 
 const Container = styled.div`
     width: 100%;
@@ -12,7 +13,10 @@ const Container = styled.div`
         padding: 0 24px;
     }
     padding: 0 15px;
-    margin: 15px auto;
+    margin: 60px auto 0;
+    @media (max-width: 600px) {
+        margin-top: 50px;
+    }
 `
 
 const News = props => {
@@ -38,6 +42,7 @@ const News = props => {
     return (
         <Container>
             {article}
+            <Comments/>
         </Container>
     )
 }

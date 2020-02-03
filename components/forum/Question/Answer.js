@@ -6,6 +6,7 @@ const Container = styled.div`
     width: 100%;
     max-width: 1200px;
     background: white;
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
     @media (min-width: 600px) {
         padding: 0 24px;
     }
@@ -22,7 +23,7 @@ const NumContainer = styled.div`
 `
 
 /**
- * 问题页面回答
+ * 问题页面所有回答
  */
 const Answer = props => {
 
