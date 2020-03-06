@@ -3,6 +3,13 @@ import styled from "styled-components";
 const Container = styled.div`
     color: #8590a6;
     padding: 0 15px;
+    img {
+        width: 35px;
+        height: 35px;
+    }
+    svg {
+        /* margin-top: 5px; */
+    }
 `
 /**
  * 论坛导航的消息通知图标

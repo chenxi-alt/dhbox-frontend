@@ -18,7 +18,7 @@ const Container = styled.button`
 
 const Button = props => {
     return (
-        <Container>登 录</Container>
+        <Container onClick={props.onClick}>登 录</Container>
     )
 }
 

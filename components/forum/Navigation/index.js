@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 import Logo from "./Logo";
 import Link from "next/link";
+import {Login} from './Login'
 import {Message, User} from "./components";
+import { useState } from "react";
 
 const Container = styled.div`
     position: relative;
@@ -34,12 +36,17 @@ const NavContainer = styled.div`
  * 顶部导航
  */
 const Navigation = props => {
+    // 这个地方先暂时用一个变量来表示是否登录
+    const [isLogin, setLogin] = useState(false)
+    let component = isLogin ? <User/> : <Login login={setLogin}/>
+
     return (
         <Container className={props.className}>
              <NavContainer>
                  <Logo/>
-                 <Message/>
-                 <User/>
+                 {/* <Message/> */}
+                 {/* <User/> */}
+                 {component}
              </NavContainer>
         </Container>
     )
