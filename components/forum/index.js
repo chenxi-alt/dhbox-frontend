@@ -5,6 +5,7 @@ import {useState} from 'react'
 import Navigation from "./Navigation";
 import PageNavigation from "./PageNavigation";
 import {LoginBox} from './LoginBox'
+import SlideShow from "./SlideShow";
 import {NavList} from "./SiderBarNavList";
 import {UserInfo} from "./SiderBarUserInfo";
 
@@ -23,12 +24,15 @@ const MainContainer = styled.div`
 const LeftContainer = styled.div`
     width: 70%;
     float: left;
-    background: white;
-    border: 1px solid #ebebeb;
-    box-shadow: 0 1px 3px rgba(26,26,26,.1);
     @media (max-width: 600px) {
         width: 100%;
     }
+`
+const ListContainer = styled.div`
+    width: 100%;
+    background: white;
+    border: 1px solid #ebebeb;
+    box-shadow: 0 1px 3px rgba(26,26,26,.1);
 `
 
 const RightContainer = styled.div`
@@ -55,10 +59,12 @@ const Forum = props => {
             </Head>
             <Navigation/>
             <MainContainer>
-                {/*    <SlideShow/>*/}
                 <LeftContainer>
-                    <PageNavigation select={props.select}/>
-                    {props.children}
+                    <SlideShow/>
+                    <ListContainer>
+                        <PageNavigation select={props.select}/>
+                        {props.children}
+                    </ListContainer>
                 </LeftContainer>
                 <RightContainer>
                     {/*<LoginBox/>*/}
