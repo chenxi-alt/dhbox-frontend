@@ -19,7 +19,7 @@ const Container = styled.ul`
 const Bottom = () => {
     return (
         <Container>
-            <li><Link href={'/'}><a>快速注册</a></Link></li>
+            <li><Link href={'/register'}><a>快速注册</a></Link></li>
             <li><Link href={'/'}><a>忘记密码</a></Link></li>
             <li><Link href={'/'}><a>遇到问题</a></Link></li>
         </Container>

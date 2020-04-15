@@ -9,8 +9,8 @@ const Login = () => {
                 <img src={'/logo.png'} alt={'logo'} width={'60'}/>
                 <h2>DH盒子</h2>
                 <p>您的数字遗产管家</p>
-                <Input/>
-                <Input type={'password'}/>
+                <Input placeholder={'用户名'}/>
+                <Input placeholder={'密码'} type={'password'}/>
                 <Button/>
                 <Bottom/>
             </div>
