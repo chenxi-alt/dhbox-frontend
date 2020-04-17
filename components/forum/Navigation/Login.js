@@ -27,10 +27,15 @@ const RegisterButton = styled.a`
 
 // 用户没有登陆时，论坛顶部导航栏右侧显示的登录注册按钮
 const Login = props => {
+
+    const register = () => {
+        location = '/register'
+    }
+
     return (
         <Container>
             <LoginButton onClick={() => props.login(true)}>登录</LoginButton>
-            <RegisterButton>注册</RegisterButton>
+            <RegisterButton onClick={register}>注册</RegisterButton>
         </Container>
     )
 }

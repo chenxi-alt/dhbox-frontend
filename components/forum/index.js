@@ -48,7 +48,7 @@ const RightContainer = styled.div`
 
 const Forum = props => {
 
-    const [isLogin, setLogin] = useState(false)
+    const [isLogin, setLogin] = useState(props.isLogin)
     let component = isLogin ? <UserInfo/> : <LoginBox setLogin={setLogin}/>
 
     return (
@@ -57,7 +57,7 @@ const Forum = props => {
                 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
                 <title>数字遗产</title>
             </Head>
-            <Navigation/>
+            <Navigation isLogin={isLogin}/>
             <MainContainer>
                 <LeftContainer>
                     <SlideShow/>

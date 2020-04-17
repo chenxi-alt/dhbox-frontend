@@ -13,7 +13,7 @@ const App = props => {
     ]
     return (
         <>
-            <Forum select={'chat'}>
+            <Forum select={'chat'} isLogin={props.isLogin}>
                 {/*<Skeleton/>*/}
                 {
                     tiles.map((title, index) => <QuestionItem title={title} key={index}/>)
@@ -31,7 +31,13 @@ export async function getServerSideProps(context) {
     if (token !== undefined) {
         token = token.substring(6)
     }
-    const res = await axios.get('/api/user/login/status').catch(err => {})
+    const res = await axios.get('/api/user/login/status', {
+        headers: {
+            Token: token
+        }
+    }).catch(err => {})
+
+    console.log(res.data)
 
     return {
         props: {

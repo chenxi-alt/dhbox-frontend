@@ -7,6 +7,9 @@ import {PhoneInput} from "../components/register/PhoneInput";
 import {CaptchaContainer, CaptchaButton, CaptchaInput} from "../components/register/Captcha";
 import {RegisterButton} from "../components/register/RegisterButton";
 
+/**
+ * 注册页面
+ */
 const Register = () => {
 
     const [name, setName] = useState('')

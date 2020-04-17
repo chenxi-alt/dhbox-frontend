@@ -37,7 +37,7 @@ const NavContainer = styled.div`
  */
 const Navigation = props => {
     // 这个地方先暂时用一个变量来表示是否登录
-    const [isLogin, setLogin] = useState(false)
+    const [isLogin, setLogin] = useState(props.isLogin)
     let component = isLogin ? <User/> : <Login login={setLogin}/>
 
     return (
