@@ -30,6 +30,8 @@ const UserOperationContainer = styled.div`
     text-align: center;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
 `
 
 const UserOperation = props => {

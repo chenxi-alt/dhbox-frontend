@@ -32,9 +32,13 @@ const Login = props => {
         location = '/register'
     }
 
+    const login = () => {
+        location = '/login'
+    }
+
     return (
         <Container>
-            <LoginButton onClick={() => props.login(true)}>登录</LoginButton>
+            <LoginButton onClick={login}>登录</LoginButton>
             <RegisterButton onClick={register}>注册</RegisterButton>
         </Container>
     )

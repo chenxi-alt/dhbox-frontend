@@ -8,6 +8,7 @@ import {LoginBox} from './LoginBox'
 import SlideShow from "./SlideShow";
 import {NavList} from "./SiderBarNavList";
 import {UserInfo} from "./SiderBarUserInfo";
+import {QuestionInputModal} from "./QuestionInputModal";
 
 //页面导航，文章列表和个人信息的总容器
 const MainContainer = styled.div`
@@ -49,7 +50,7 @@ const RightContainer = styled.div`
 const Forum = props => {
 
     const [isLogin, setLogin] = useState(props.isLogin)
-    let component = isLogin ? <UserInfo/> : <LoginBox setLogin={setLogin}/>
+    let component = isLogin ? <UserInfo/> : <LoginBox/>
 
     return (
         <div>
@@ -73,6 +74,7 @@ const Forum = props => {
                     <NavList/>
                 </RightContainer>
             </MainContainer>
+            <QuestionInputModal/>
             <style jsx global>{`
                 html, body {
                     margin: 0;
