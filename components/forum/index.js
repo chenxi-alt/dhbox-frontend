@@ -49,8 +49,12 @@ const RightContainer = styled.div`
 
 const Forum = props => {
 
+
+    // 话题输入框
+    const [visible, setVisible] = useState(false)
+
     const [isLogin, setLogin] = useState(props.isLogin)
-    let component = isLogin ? <UserInfo/> : <LoginBox/>
+    let component = isLogin ? <UserInfo onClick={() => setVisible(true)}/> : <LoginBox/>
 
     return (
         <div>
@@ -74,7 +78,7 @@ const Forum = props => {
                     <NavList/>
                 </RightContainer>
             </MainContainer>
-            <QuestionInputModal/>
+            <QuestionInputModal visible={visible} onCancel={() => setVisible(false)}/>
             <style jsx global>{`
                 html, body {
                     margin: 0;

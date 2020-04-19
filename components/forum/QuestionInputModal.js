@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import axios from 'axios'
 import styled from "styled-components";
 
@@ -11,6 +12,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     background: rgba(26,26,26,0.65);
+    visibility: ${props => props.visible ? 'visible' : 'hidden'};
 `
 
 const ModalContainer = styled.div`
@@ -92,13 +94,40 @@ const Button = styled.button`
  * 话题输入对话框
  */
 const QuestionInputModal = props => {
+
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+
+    const publish = () => {
+        if (title === '') {
+            alert('标题不能为空')
+        } else {
+            axios.post('/api/topic', {
+                title,
+                description
+            }, {
+                headers: {
+                    Token: localStorage.getItem('Token')
+                }
+            }).then(resp => {
+                if (resp.data.code !== 200) {
+                    alert(resp.data.msg)
+                } else {
+                    location = '/forum'
+                }
+            }).catch(err => {
+            })
+        }
+    }
+
     return (
-        <Container>
+        <Container visible={props.visible}>
             <ModalContainer>
-                <TitleInput placeholder={'问题'}/>
-                <DescriptionInput placeholder={'问题描述'}/>
-                <PositiveButton>发表</PositiveButton>
-                <Button>取消</Button>
+                <TitleInput placeholder={'问题'} value={title} onChange={e => setTitle(e.target.value)}/>
+                <DescriptionInput placeholder={'问题描述'} value={description}
+                                  onChange={e => setDescription(e.target.value)}/>
+                <PositiveButton onClick={publish}>发表</PositiveButton>
+                <Button onClick={props.onCancel}>取消</Button>
             </ModalContainer>
         </Container>
     )
