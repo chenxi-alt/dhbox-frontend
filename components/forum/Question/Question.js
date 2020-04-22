@@ -39,9 +39,9 @@ const Question = props => {
             boxShadow: '0 0 2px rgba(0, 0, 0, .1)'
         }}>
             <Container>
-                <h1>哪些内容才能算作是数字遗产，价值如何评估？</h1>
+                <h1>{props.topic.title}</h1>
                 <blockquote>
-                    法律规定，（俄克拉何马州）的居民有权管理已故亲属的网络帐户。俄州是美国少数几个立法规定如何处理逝者数字财产的州之一。受信息技术安全公司迈克菲(McAfee)委托展开的一项调查显示，全球各地消费者数字资产的平均价值为37438美元，这些资产包括在线照片库里的内容、个人信息和娱乐文件。
+                    {props.topic.description}
                 </blockquote>
             </Container>
         </div>
