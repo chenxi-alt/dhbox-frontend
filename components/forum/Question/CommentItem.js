@@ -16,7 +16,7 @@ let User = props => {
     return (
         <UserContainer>
             <img src={'https://pic2.zhimg.com/v2-ec909032830354f6bcb054a8b04f0852_s.jpg'} width={24} height={24}/>
-            用户名
+            {props.username}
         </UserContainer>
     )
 }
@@ -28,7 +28,7 @@ const CommentContainer = styled.div`
 const Comment = props => {
     return (
         <CommentContainer>
-            <p>恭贺新春，PS Store贺年优惠来袭！</p>
+            <p>{props.content}</p>
         </CommentContainer>
     )
 }
@@ -77,8 +77,8 @@ const Container = styled.div`
 const CommentItem = props => {
     return (
         <Container>
-            <User/>
-            <Comment/>
+            <User username={props.comment.username}/>
+            <Comment content={props.comment.content}/>
             <Bottom/>
         </Container>
     )

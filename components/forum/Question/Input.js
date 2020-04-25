@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -48,10 +49,15 @@ const Container = styled.div`
  * 评论输入框
  */
 const Input = props => {
+
+    const onFocus = () => {
+
+    }
+
     return (
         <Container>
-            <input placeholder={'请在此输入评论...'}/>
-            <button>发布</button>
+            <input placeholder={'请在此输入评论...'} value={props.value} onChange={props.onChange}/>
+            <button onClick={props.onClick}>发布</button>
         </Container>
     )
 }

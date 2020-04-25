@@ -87,7 +87,7 @@ const User = props => {
     return (
         <UserContainer>
             <img src={'https://pic1.zhimg.com/f11b438c48e25363ec09f08a7ac7d579_xs.jpg'} alt={'avatar'}/>
-            <span>匿名用户</span>
+            <span>{props.username}</span>
         </UserContainer>
     )
 }
@@ -98,22 +98,22 @@ const User = props => {
 const AnswerBlock = props => {
     return (
         <Container>
-            <User/>
+            <User username={props.comment.parent.username}/>
             <p>
-                {props.text}
+                {props.comment.parent.content}
             </p>
             {/*时间*/}
             <TimeContainer>
-                2020-01-29
+                {props.comment.parent.publishTime}
             </TimeContainer>
             {/*点赞反对*/}
             <BottomContainer>
-                <Button num={10}/>
+                <Button num={props.comment.parent.vote}/>
                 {/*表示反对按钮*/}
-                <Button type={'negative'} num={3}/>
+                <Button type={'negative'} num={0}/>
             </BottomContainer>
-            {/*评论*/}
-            <Comments/>
+            {/*子评论*/}
+            <Comments comments={props.comment.child} topicId={props.topicId} pId={props.comment.parent.id}/>
         </Container>
     )
 }

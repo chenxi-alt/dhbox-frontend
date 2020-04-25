@@ -1,4 +1,6 @@
+import axios from "axios";
 import styled from "styled-components";
+import {useState} from 'react'
 
 import CommentItem from "./CommentItem";
 import Input from "./Input";
@@ -27,7 +29,7 @@ const CommentCountContainer = styled.div`
 const CommentCount = props => {
     return (
         <CommentCountContainer>
-            <h2>3 条评论</h2>
+            <h2>{props.num} 条评论</h2>
         </CommentCountContainer>
     )
 }
@@ -36,12 +38,29 @@ const CommentCount = props => {
  * 问题的回答的评论列表
  */
 const Comments = props => {
+    const [value, setValue] = useState('')
+    console.log(props.pId)
+    const publishComment = () => {
+        console.log('onclick')
+        axios.put('/api/topic/' + props.topicId + '/comment', {
+            content: value,
+            pId: props.pId
+        }, {
+            headers: {
+                Token: localStorage.getItem('Token')
+            }
+        }).then(resp => {
+            if (resp.data.code === 200) {
+                location.reload()
+            }
+        }).catch(() => {
+        })
+    }
     return (
         <Container>
-            <CommentCount/>
-            <CommentItem/>
-            <CommentItem/>
-            <Input/>
+            <CommentCount num={props.comments.length}/>
+            {props.comments.map(comment => <CommentItem comment={comment}/>)}
+            <Input onClick={publishComment} value={value} onChange={e => setValue(e.target.value)}/>
         </Container>
     )
 }

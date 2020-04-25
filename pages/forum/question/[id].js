@@ -4,6 +4,7 @@ import axios from 'axios'
 import Navigation from "../../../components/forum/Navigation";
 import Question from "../../../components/forum/Question/Question";
 import Answer from "../../../components/forum/Question/Answer";
+import {BottomAnswerInput} from "../../../components/forum/Question/BottomAnswerInput";
 
 /**
  * 话题讨论的问题浏览页面
@@ -17,7 +18,8 @@ const QuestionPage = props => {
             </Head>
             <Navigation isLogin={props.isLogin}/>
             <Question topic={props.topic}/>
-            <Answer/>
+            <Answer topicId={props.topic.id}/>
+            <BottomAnswerInput topicId={props.topic.id}/>
             <style jsx global>{`
                 html, body {
                     margin: 0;
