@@ -13,7 +13,7 @@ const App = () => {
     })
 
     useEffect(() => {
-        axios.get('/api/article/1/list')
+        axios.get('/api/article/2/list')
             .then(resp => {
                 if (resp.data.code === 200) {
                     setData({
@@ -26,7 +26,7 @@ const App = () => {
 
     return (
         <>
-            <Forum select={'news'}>
+            <Forum select={'law'}>
                 {
                     data.loading ? <Skeleton/> :
                         data.news.map(item => <NewsContentItem news={item} key={item.id}/>)

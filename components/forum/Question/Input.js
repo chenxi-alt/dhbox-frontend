@@ -1,4 +1,4 @@
-
+import {useRef} from 'react'
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -16,14 +16,6 @@ const Container = styled.div`
         transition: all .2s;
         flex-basis: 10px;
         width: 10px;
-        
-        :focus {
-            border-color: #8590a6;
-            margin-right: 90px;
-            & ~ button {
-                transform: scale(1);
-            }
-        }
     }
     button {
         transition: all 0.2s ease;
@@ -50,14 +42,28 @@ const Container = styled.div`
  */
 const Input = props => {
 
+    // 控制文本输入框的样式变换
     const onFocus = () => {
-
+        input.current.style.borderColor = '#8590a6'
+        input.current.style.marginRight = '90px'
+        button.current.style.transform = 'scale(1)'
     }
+    const onBlur = () => {
+        if (props.value === '') {
+            input.current.style.borderColor = '#ebebeb'
+            input.current.style.marginRight = '0'
+            button.current.style.transform = 'scale(0)'
+        }
+    }
+    const input = useRef(null)
+    const button = useRef(null)
 
     return (
         <Container>
-            <input placeholder={'请在此输入评论...'} value={props.value} onChange={props.onChange}/>
-            <button onClick={props.onClick}>发布</button>
+            <input ref={input} placeholder={'请在此输入评论...'}
+                   onFocus={onFocus} onBlur={onBlur}
+                   value={props.value} onChange={props.onChange}/>
+            <button ref={button} onClick={props.onClick}>发布</button>
         </Container>
     )
 }

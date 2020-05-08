@@ -110,7 +110,7 @@ const AnswerBlock = props => {
             <BottomContainer>
                 <Button num={props.comment.parent.vote}/>
                 {/*表示反对按钮*/}
-                <Button type={'negative'} num={0}/>
+                <Button type={'negative'} num={''}/>
             </BottomContainer>
             {/*子评论*/}
             <Comments comments={props.comment.child} topicId={props.topicId} pId={props.comment.parent.id}/>

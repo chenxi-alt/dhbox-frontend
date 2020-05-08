@@ -61,9 +61,9 @@ const BottomContainer = styled.div`
 const Bottom = props => {
     return (
         <BottomContainer>
-            <Button num={1}/>
+            <Button num={props.comment.vote}/>
             {/*表示反对按钮*/}
-            <Button type={'negative'} num={1}/>
+            <Button type={'negative'} num={''}/>
             <Reply/>
         </BottomContainer>
     )
@@ -79,7 +79,8 @@ const CommentItem = props => {
         <Container>
             <User username={props.comment.username}/>
             <Comment content={props.comment.content}/>
-            <Bottom/>
+            {/*点赞，反对，回复*/}
+            <Bottom comment={props.comment}/>
         </Container>
     )
 }

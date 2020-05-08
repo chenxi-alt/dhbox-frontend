@@ -35,16 +35,14 @@ const CommentCount = props => {
 }
 
 /**
- * 问题的回答的评论列表
+ * 子评论列表
  */
 const Comments = props => {
     const [value, setValue] = useState('')
-    console.log(props.pId)
     const publishComment = () => {
-        console.log('onclick')
         axios.put('/api/topic/' + props.topicId + '/comment', {
             content: value,
-            pId: props.pId
+            pid: props.pId
         }, {
             headers: {
                 Token: localStorage.getItem('Token')
@@ -52,6 +50,8 @@ const Comments = props => {
         }).then(resp => {
             if (resp.data.code === 200) {
                 location.reload()
+            } else if (resp.data.code === 401) {
+                alert('请登录')
             }
         }).catch(() => {
         })
@@ -59,7 +59,7 @@ const Comments = props => {
     return (
         <Container>
             <CommentCount num={props.comments.length}/>
-            {props.comments.map(comment => <CommentItem comment={comment}/>)}
+            {props.comments.map(comment => <CommentItem comment={comment} key={comment.id}/>)}
             <Input onClick={publishComment} value={value} onChange={e => setValue(e.target.value)}/>
         </Container>
     )

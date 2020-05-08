@@ -1,5 +1,6 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, Suspense} from 'react'
 import axios from 'axios'
+import useSWR from "swr";
 
 import Forum from "../components/forum";
 import Skeleton from "../components/Skeleton";
@@ -16,14 +17,15 @@ const App = props => {
             })
     }, [])
 
+    const {data} = useSWR('/api/topic/list', axios)
+
     return (
         <>
             <Forum select={'chat'} isLogin={props.isLogin}>
-                {/*<Skeleton/>*/}
-                {
-                    topics.map((topic, index) =>
+                {data ?
+                    data.data.map((topic, index) =>
                         <QuestionItem topic={topic} key={index}/>)
-                }
+                    : <Skeleton/>}
             </Forum>
         </>
     )
@@ -43,7 +45,8 @@ export async function getServerSideProps(context) {
             headers: {
                 Token: token
             }
-        }).catch(err => {})
+        }).catch(err => {
+        })
         isLogin = res.data.code === 200
     }
 
