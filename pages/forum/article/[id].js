@@ -20,10 +20,9 @@ const NewsPage = props => {
             <Head>
                 <title>news</title>
                 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
-                <link rel="stylesheet" href="/quill.core.css"/>
             </Head>
             <FixedNavigation/>
-            <News/>
+            <News articleId={props.id}/>
             <style jsx global>{`
                 html, body {
                     margin: 0;
@@ -38,3 +37,11 @@ const NewsPage = props => {
 }
 
 export default NewsPage
+
+export async function getServerSideProps(context) {
+    return {
+        props: {
+            id: context.params.id
+        }
+    }
+}

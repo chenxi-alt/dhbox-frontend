@@ -20,6 +20,7 @@ const Container = styled.div`
         word-break: break-word;
         line-height: 1.6;
         font-size: 16px;
+        max-height: 50px;
     }
     div {
         color: #444;
@@ -33,14 +34,18 @@ const Container = styled.div`
  * 新闻热点的一个item
  */
 const NewsContentItem = props => {
+
+    let summary = props.news.summary.length > 130 ? props.news.summary.substring(0, 130) + '...'
+        : props.news.summary + '...'
+
     return (
         <Container>
-            <Link href={'/forum/news/12'}>
+            <Link prefetch={false} href={'/forum/article/' + props.news.id}>
                 <a>
                     <h2>{props.news.title}</h2>
                     <div>
                         <span>
-                            {props.news.summary}
+                            {summary}
                         </span>
                     </div>
                 </a>

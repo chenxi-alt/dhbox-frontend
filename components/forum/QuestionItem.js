@@ -31,7 +31,7 @@ const Container = styled.div`
  */
 const QuestionItem = props => {
     return (
-        <Container><Link href={'/forum/question/' + props.topic.id}>
+        <Container><Link prefetch={false} href={'/forum/question/' + props.topic.id}>
             <a>
                 <div>
                     <h2>{props.topic.title}</h2>

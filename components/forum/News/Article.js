@@ -24,15 +24,12 @@ const Article = props => {
         let quill = new Quill('#editor', {
             readOnly: true
         })
-        quill.setContents(props.text)
+        quill.setContents(JSON.parse(props.article.content))
     }, [])
 
     return (
         <Container>
-            <h1>中国首家互联网法院于杭州挂牌</h1>
-            <span>来源：中国数字遗产网</span>
-            <span>时间：2017-08-19</span>
-            <span>浏览次数:1796</span>
+            <h1>{props.article.title}</h1>
             <div id="editor" style={{fontSize: '1.2rem'}}/>
         </Container>
     )
