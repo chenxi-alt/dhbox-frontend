@@ -48,6 +48,7 @@ export async function getServerSideProps(context) {
                 Token: token
             }
         }).catch(err => {
+            console.log(err)
         })
         isLogin = res.data.code === 200
     }
