@@ -36,8 +36,10 @@ export default App
 export async function getServerSideProps(context) {
 
     let isLogin = false
-
-    let cookieList = context.req.headers.cookie.split('; ')
+    let cookie = context.req.headers.cookie
+    let cookieList = []
+    if (cookie !== undefined)
+        cookieList = context.req.headers.cookie.split('; ')
     let token = cookieList.find(s => s.startsWith('Token'))
     if (token !== undefined) {
         token = token.substring(6)
